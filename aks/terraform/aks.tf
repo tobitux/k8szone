@@ -30,12 +30,16 @@ resource "azurerm_kubernetes_cluster" "k8szone" {
   }
 }
 
+resource "local_file" "kubeconfig" {
+    sensitive_content  = azurerm_kubernetes_cluster.k8szone.kube_config_raw
+    filename = "${pathexpand("~/.kube/k8szone")}"
+}
+
 output "client_certificate" {
   value = azurerm_kubernetes_cluster.k8szone.kube_config.0.client_certificate
 }
 
 output "kube_config" {
   value = azurerm_kubernetes_cluster.k8szone.kube_config_raw
-
   sensitive = true
 }
