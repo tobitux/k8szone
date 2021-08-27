@@ -33,6 +33,7 @@ resource "azurerm_kubernetes_cluster" "k8szone" {
 resource "local_file" "kubeconfig" {
     sensitive_content  = azurerm_kubernetes_cluster.k8szone.kube_config_raw
     filename = "${pathexpand("~/.kube/k8szone")}"
+    file_permission = "0600"
 }
 
 output "client_certificate" {
