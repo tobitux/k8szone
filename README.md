@@ -3,12 +3,12 @@
 AKS Playground.
 
 ## Azure Login
-```
+```shell
 az login
 ```
 
 ## Install K8s
-```
+```shell
 cd terraform
 terraform init
 terraform apply -auto-approve
@@ -17,12 +17,12 @@ terraform destroy
 ```
 
 ## Install Azure Vote
-```
+```shell
 ./install-vote.sh
 ```
 
 ## Install Kubernetes Dashboard
-```
+```shell
 helm install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard
 
 #kubectl delete clusterrolebinding kubernetes-dashboard
